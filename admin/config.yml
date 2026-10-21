@@ -1,16 +1,14 @@
 backend:
   name: github
   repo: Grandview-Resident-Technology/grandview-exchange-test
-  branch: main # or master
-  base_url: https://api.netlify.com
-  auth_endpoint: auth
-  app_id: Ov23liYY5l0sdsK7GgWe
+  branch: main
+  auth_type: implicit
+
 # Where uploaded images will be stored
 media_folder: "assets/img"
 public_folder: "/assets/img"
 
 collections:
-  # Collection for single-file pages
   - name: "pages"
     label: "Pages"
     files:
