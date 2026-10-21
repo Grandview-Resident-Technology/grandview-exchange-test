@@ -1,0 +1,29 @@
+backend:
+  name: github
+  repo: Grandview-Resident-Technology/grandview-exchange-test
+  branch: main # or master
+  base_url: https://api.netlify.com
+  auth_endpoint: auth
+
+# Where uploaded images will be stored
+media_folder: "assets/img"
+public_folder: "/assets/img"
+
+collections:
+  # Collection for single-file pages
+  - name: "pages"
+    label: "Pages"
+    files:
+      - file: "index.html"
+        label: "Home Page"
+        name: "home"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Body Content", name: "body", widget: "markdown" }
+
+      - file: "resident-guide.html"
+        label: "Resident Resources Guide"
+        name: "resident_guide"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Body Content", name: "body", widget: "markdown" }
