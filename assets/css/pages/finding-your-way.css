@@ -1,0 +1,122 @@
+/* ============================================================
+   Page -- Finding Your Way Around (Annotated Image Layouts)
+============================================================ */
+
+.guide-container {
+  max-width: var(--content-width); /* Matches master grid profile */
+  margin: var(--space-xl) auto;
+  padding: 0 var(--space-md);
+}
+
+.text-center { 
+  text-align: center; 
+}
+
+.screenshot-wrapper {
+  margin: var(--space-md) auto;
+}
+
+.border-shadow {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: var(--shadow-card);
+  margin: 0 auto;
+}
+
+/* Informational Alert Box for Small Viewports */
+.alert-small-window {
+  display: block;
+  background-color: var(--teal-light);
+  border-left: 4px solid var(--teal);
+  padding: var(--space-sm) var(--space-md);
+  margin-top: var(--space-md);
+  font-size: 1.05rem;
+  color: var(--text-body);
+  border-radius: 0 4px 4px 0;
+  text-align: left;
+}
+
+/* Annotated Screenshot Mapping Framework */
+.annotated-map-container {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.main-screenshot {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  width: 100%;
+}
+
+/* High-Contrast Interactive Overlay Badges */
+.map-badge {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  background-color: #ff3b30; /* High contrast indicator red */
+  color: var(--bg-white);
+  font-weight: 700;
+  font-size: 0.9rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  border: 2px solid var(--bg-white);
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.map-badge:hover {
+  transform: scale(1.15);
+  background-color: #e02e24;
+}
+
+/* Coordinates mapped precisely onto your Messages Page image targets */
+.badge-1 { top: 18%; left: 10%; }  /* Left Navigation Links Panel */
+.badge-2 { top: 7%; left: 88%; }   /* Global Text Search Box Input */
+.badge-3 { top: 21%; left: 24%; }  /* Filter Option Dropdowns */
+.badge-4 { top: 31%; left: 45%; }  /* Active Conversation Thread Heading */
+
+/* Explanation List Legend Layout */
+.guide-legend-list h3 {
+  border-bottom: 2px solid var(--teal);
+  padding-bottom: var(--space-xs);
+  color: var(--text-dark);
+  margin-top: var(--space-xl);
+}
+
+.legend-dl dt {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--text-dark);
+  margin-top: var(--space-lg);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.legend-dl dd {
+  margin-left: calc(20px + var(--space-sm));
+  margin-bottom: var(--space-lg);
+  color: var(--text-body);
+}
+
+.list-badge {
+  background-color: #ff3b30;
+  color: var(--bg-white);
+  font-size: 0.85rem;
+  font-weight: 700;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+/* Extra spacing for the initial home page layout presentation block */
+.home-screenshot-space {
+  margin-top: var(--space-lg);
+  margin-bottom: var(--space-xl);
+}

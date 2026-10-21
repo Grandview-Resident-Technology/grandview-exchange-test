@@ -1,0 +1,479 @@
+/* ============================================================
+   GLOBAL LAYOUT SYSTEM
+   Grid, Shell, Layout wrappers, and Content Cards
+============================================================ */
+
+/* Prevent horizontal overflow scrolling and force layout engine to fit viewport */
+html,
+body {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+  /* Prevents iOS Safari from auto-enlarging text */
+}
+
+/* Base box-sizing defense for main containers */
+.site-header img,
+.site-shell,
+.main-layout-wrapper {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* ---- Grid Utilities ---- */
+.grid {
+  display: grid;
+  gap: var(--space-lg);
+}
+
+.grid-1col {
+  grid-template-columns: 1fr;
+  gap: 0;
+}
+
+.grid-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-lg);
+}
+
+/* ---- Structural Shell & Header ---- */
+.site-shell {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+  box-sizing: border-box;
+}
+
+.site-header {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+  box-sizing: border-box;
+}
+
+.site-header img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ---- Mobile Viewport & Width Controls (Screens under 768px) ---- */
+@media (max-width: 768px) {
+  .grid-2col {
+    grid-template-columns: 1fr;
+  }
+
+  /* Make shell and header slightly narrower on phone screens */
+  .site-shell,
+  .site-header,
+  #site-nav {
+    width: 90%;
+    /* Adjust this percentage to make it narrower (e.g., 88%) or wider (e.g., 94%) */
+    max-width: 540px;
+    /* Cap layout width on larger phone screens */
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  /* Keep main layout tracks aligned inside the 90% shell */
+  .main-layout-wrapper {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+    width: 100%;
+    margin-top: var(--space-lg);
+  }
+}
+
+/* ---- Balanced Two-Column Structural Frame (Desktop) ---- */
+@media (min-width: 769px) {
+  .main-layout-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: var(--space-xl);
+    margin-top: var(--space-xl);
+    align-items: start;
+  }
+}
+
+/* Sidebar layout track base configuration rules */
+.site-sidebar {
+  width: 100%;
+}
+
+/* Vertical structural layout divider on desktop viewports */
+@media (min-width: 769px) {
+  .site-sidebar {
+    border-left: 1px solid var(--border);
+    padding-left: var(--space-lg);
+  }
+}
+
+@media (max-width: 768px) {
+  .site-sidebar {
+    padding-left: 0;
+  }
+}
+
+/* ---- Full-Width Page Layout Modifier ---- */
+.main-layout-wrapper.full-width-layout {
+  display: block;
+  width: 100%;
+}
+
+/* ============================================================
+   GLOBAL NAVIGATION BAR (Breadcrumbs & Action Buttons)
+============================================================ */
+#site-nav {
+  max-width: var(--content-width);
+  margin: var(--space-lg) auto;
+  padding: 0 var(--space-md);
+  width: 100%;
+  display: block;
+  box-sizing: border-box;
+}
+
+#site-nav .site-nav-row,
+.site-nav-row {
+  display: flex !important;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.breadcrumb {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 1.15rem;
+  color: var(--text-body);
+}
+
+.breadcrumb a {
+  color: var(--teal);
+  text-decoration: none;
+}
+
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+.nav-buttons {
+  display: flex;
+  align-items: center;
+}
+
+#site-nav .btn-nav-return,
+#nav-back-link,
+.btn-nav-return {
+  display: inline-block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  padding: 0.4rem 0.8rem;
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-dark) !important;
+  text-decoration: none !important;
+  background-color: rgba(0, 0, 0, 0.05) !important;
+  border-radius: 6px;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+#site-nav .btn-nav-return:hover,
+#nav-back-link:hover,
+.btn-nav-return:hover {
+  background-color: rgba(0, 0, 0, 0.09) !important;
+  color: var(--text-dark) !important;
+}
+
+/* ---- Page Intro Summary Headers ---- */
+.page-intro-summary {
+  margin-top: var(--space-sm);
+  margin-bottom: var(--space-xl);
+}
+
+.page-intro-summary h1 {
+  font-family: 'Lora', serif;
+  margin-bottom: var(--space-md);
+}
+
+/* ---- Card Headings ---- */
+.section-block h2,
+.sidebar-heading {
+  font-family: 'Lora', serif;
+  margin: 0 0 var(--space-xs) 0;
+}
+
+/* ============================================================
+   UNIFIED CONTENT & SIDEBAR ITEM SPACING
+============================================================ */
+/* ---- Main Content Area ---- */
+.main-content-area {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Main Section Blocks & Sidebar Container Cards */
+.section-block {
+  background: var(--bg-white);
+  border-radius: 8px;
+  padding: var(--space-xl);
+  margin-bottom: var(--space-xl);
+  box-shadow: var(--shadow-card);
+}
+
+/* Section Sub-descriptions */
+.section-desc,
+.sidebar-intro {
+  color: var(--text-muted);
+  margin-bottom: var(--space-lg);
+}
+
+/* Unified Row Item Layout (Main Area & Sidebar) */
+.section-item-row,
+.sidebar-item {
+  display: flex;
+  flex-direction: column;
+  padding-top: var(--space-lg);
+  margin-top: var(--space-lg);
+  border-top: 1px solid var(--border);
+}
+
+/* First Item in a Block (No Border / No Top Margin) */
+.section-item-row:first-of-type,
+.sidebar-item:first-of-type {
+  border-top: none;
+  padding-top: 0;
+  margin-top: 0;
+}
+
+/* First Item directly following an intro description text */
+.section-desc+.section-item-row,
+.sidebar-intro+.sidebar-item {
+  border-top: 1px solid var(--border);
+  padding-top: var(--space-lg);
+  margin-top: var(--space-lg);
+}
+
+/* Typography & Base Margins */
+.section-item-title,
+.sidebar-item h3 {
+  font-weight: 600;
+  margin: 0 0 var(--space-xs) 0;
+}
+
+.section-item-desc,
+.rich-text-area p {
+  margin: 0 0 var(--space-xs) 0;
+}
+
+/* Clear internal paragraph margins when inside a wrapper div */
+.section-item-desc p {
+  margin: 0;
+}
+
+/* Subheadings inside main section items */
+.section-item-row h4 {
+  margin-top: var(--space-md);
+  margin-bottom: var(--space-xs);
+}
+
+/* Combined Centered Action & Sidebar Links */
+.section-item-action,
+.sidebar-link {
+  color: var(--teal);
+  text-decoration: underline;
+  text-underline-offset: 5px;
+  font-weight: 600;
+  font-size: 1.15rem;
+  margin-top: var(--space-sm);
+  align-self: center;
+}
+
+.section-item-action:hover,
+.sidebar-link:hover {
+  color: var(--teal-dark);
+  text-underline-offset: 7px;
+}
+
+/* List Rhythm & Spacing */
+.rich-text-area ul,
+.rich-text-area ol {
+  margin: 0 0 var(--space-sm) 0;
+  padding-left: var(--space-lg);
+}
+
+.rich-text-area li {
+  line-height: 1.5;
+  margin-bottom: var(--space-xs);
+}
+
+.section-item-row p strong {
+  display: inline-block;
+  margin-bottom: 0;
+}
+
+/* Prevent bottom margins from leaking out of row containers */
+.section-item-row>*:last-child,
+.sidebar-item>*:last-child {
+  margin-bottom: 0;
+}
+
+/* ============================================================
+   GLOBAL FOOTER SYSTEM
+============================================================ */
+.site-footer {
+  text-align: center;
+  padding: var(--space-xl) 0;
+  border-top: 1px solid var(--border);
+  width: 100%;
+}
+
+.site-footer p {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* ============================================================
+   MOBILE RESPONSIVE CALENDAR & SIDEBAR FIXES
+============================================================ */
+
+/* FullCalendar Header Toolbar Responsiveness */
+@media (max-width: 768px) {
+
+  /* Stack or shrink header elements gracefully */
+  .fc .fc-toolbar {
+    flex-direction: column !important;
+    gap: 8px !important;
+    align-items: center !important;
+  }
+
+  .fc .fc-toolbar-title {
+    font-size: 1.15rem !important;
+    text-align: center !important;
+    width: 100% !important;
+  }
+
+  /* Shorten button margins so prev/next don't overlap title */
+  .fc .fc-button {
+    padding: 0.35rem 0.6rem !important;
+    font-size: 0.85rem !important;
+  }
+
+  /* Compact FullCalendar cell padding and column text on mobile */
+  .fc .fc-col-header-cell-cushion,
+  .fc .fc-daygrid-day-number {
+    font-size: 0.8rem;
+    padding: 2px !important;
+  }
+
+  .fc-theme-standard td,
+  .fc-theme-standard th {
+    padding: 0 !important;
+  }
+
+  /* Force horizontal scrolling for table-grid view on tiny screens if needed */
+  .fc .fc-toolbar-chunk {
+    display: flex !important;
+    justify-content: center !important;
+  }
+
+  /* FullCalendar Table View Responsiveness */
+  .fc .fc-view-harness {
+    width: 100% !important;
+    overflow-x: auto !important;
+
+  }
+
+  /* Unified Mobile Sidebar Sizing */
+  .site-sidebar.section-block {
+    padding: var(--space-lg);
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* ============================================================
+   CLEAN & POLISHED MOBILE CALENDAR LIST VIEW
+============================================================ */
+  @media (max-width: 768px) {
+
+    /* 1. Reclaim card spacing so content fills the screen gracefully */
+    .section-block {
+      padding: var(--space-md) var(--space-xs) !important;
+    }
+
+    /* 2. Style date headers cleanly */
+    .fc .fc-list-day-cushion {
+      background-color: var(--bg-light, #f4f6f8) !important;
+      padding: 8px 12px !important;
+    }
+
+    .fc .fc-list-day-text,
+    .fc .fc-list-day-side-text {
+      font-family: 'Lora', serif !important;
+      font-weight: 600 !important;
+      color: var(--text-dark) !important;
+      font-size: 1.05rem !important;
+    }
+
+    /* 3. Re-align table cells into a clean 2-column layout */
+    .fc .fc-list-event {
+      display: table-row !important;
+      /* Restore native table row flow */
+      border: none !important;
+    }
+
+    .fc .fc-list-event td {
+      border: none !important;
+      /* Remove unsightly lines under text */
+      padding: 10px 4px !important;
+      vertical-align: top !important;
+      background: transparent !important;
+    }
+
+    /* Compact left column for Time */
+    .fc .fc-list-event-time {
+      width: 28% !important;
+      min-width: 90px !important;
+      font-size: 0.85rem !important;
+      font-weight: 600 !important;
+      color: var(--text-muted) !important;
+      white-space: normal !important;
+      /* Allow 10:00am - 11:00am to stack naturally */
+      line-height: 1.3 !important;
+    }
+
+    /* Color dot cell - tuck neatly next to title */
+    .fc .fc-list-event-graphic {
+      width: 16px !important;
+      padding-right: 0 !important;
+      padding-left: 2px !important;
+    }
+
+    .fc .fc-list-event-dot {
+      border-width: 5px !important;
+      margin-top: 4px !important;
+    }
+
+    /* Title column - clean readable typography */
+    .fc .fc-list-event-title {
+      font-size: 1rem !important;
+      line-height: 1.35 !important;
+      padding-left: 6px !important;
+    }
+
+    .fc .fc-list-event-title a {
+      color: var(--text-dark) !important;
+      text-decoration: none !important;
+      font-weight: 500 !important;
+    }
+
+    /* Elegant thin separator between items */
+    .fc .fc-list-event+.fc-list-event td {
+      border-top: 1px solid rgba(0, 0, 0, 0.06) !important;
+    }
+  }
+}

@@ -1,0 +1,173 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet" version="1.2" baseProfile="tiny-ps" xml:space="preserve"><title>GrandviewExchange</title>
+  <defs>
+    
+    <linearGradient id="skyGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#E88B6E"/>   
+      <stop offset="50%" stop-color="#F2B263"/>  
+      <stop offset="100%" stop-color="#E3985D"/> 
+    </linearGradient>
+
+    
+    <linearGradient id="brickGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#D66F41"/>
+      <stop offset="100%" stop-color="#B04C25"/>
+    </linearGradient>
+
+    
+    <linearGradient id="slateGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#3A4652"/>
+      <stop offset="100%" stop-color="#232B33"/>
+    </linearGradient>
+
+    
+    <linearGradient id="creamGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#F9EBD5"/>
+      <stop offset="100%" stop-color="#DECBAD"/>
+    </linearGradient>
+
+    
+    <linearGradient id="goldGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFF3A1"/>
+      <stop offset="50%" stop-color="#F2C14E"/>
+      <stop offset="100%" stop-color="#C78D20"/>
+    </linearGradient>
+
+    
+    <linearGradient id="groundGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#382C24"/>
+      <stop offset="100%" stop-color="#1F1712"/>
+    </linearGradient>
+
+    
+    
+  </defs>
+
+  
+  <rect width="512" height="512" rx="112" fill="url(#skyGradient)"/>
+
+  
+  <g transform="translate(0, 15)">
+    
+    <path d="M 0 410 L 512 410 L 512 512 L 0 512 Z" fill="url(#groundGradient)"/>
+    <path d="M 170 410 L 342 410 L 370 497 L 142 497 Z" fill="#4D433D" opacity="0.6"/> 
+
+    
+    
+    <rect x="52" y="190" width="130" height="220" fill="url(#brickGradient)" rx="2"/>
+    
+    <rect x="110" y="180" width="45" height="230" fill="url(#slateGradient)"/>
+    <rect x="52" y="180" width="130" height="12" fill="#232B33"/> 
+    
+    
+    
+    <g fill="#FBEBCE" opacity="0.85">
+      <rect x="118" y="200" width="12" height="16" rx="1"/>
+      <rect x="135" y="200" width="12" height="16" rx="1"/>
+      <rect x="118" y="225" width="12" height="16" rx="1"/>
+      <rect x="135" y="225" width="12" height="16" rx="1"/>
+      <rect x="118" y="250" width="12" height="16" rx="1"/>
+      <rect x="135" y="250" width="12" height="16" rx="1"/>
+      <rect x="118" y="275" width="12" height="16" rx="1"/>
+      <rect x="135" y="275" width="12" height="16" rx="1"/>
+      <rect x="118" y="300" width="12" height="16" rx="1"/>
+      <rect x="135" y="300" width="12" height="16" rx="1"/>
+      <rect x="118" y="325" width="12" height="16" rx="1"/>
+      <rect x="135" y="325" width="12" height="16" rx="1"/>
+    </g>
+    
+    <g fill="#4A3B32" opacity="0.75">
+      <rect x="64" y="200" width="12" height="16" rx="1"/>
+      <rect x="84" y="200" width="12" height="16" rx="1"/>
+      <rect x="64" y="225" width="12" height="16" rx="1"/>
+      <rect x="84" y="225" width="12" height="16" rx="1"/>
+      <rect x="64" y="250" width="12" height="16" rx="1"/>
+      <rect x="84" y="250" width="12" height="16" rx="1"/>
+      <rect x="64" y="275" width="12" height="16" rx="1"/>
+      <rect x="84" y="275" width="12" height="16" rx="1"/>
+      <rect x="64" y="300" width="12" height="16" rx="1"/>
+      <rect x="84" y="300" width="12" height="16" rx="1"/>
+      <rect x="64" y="325" width="12" height="16" rx="1"/>
+      <rect x="84" y="325" width="12" height="16" rx="1"/>
+    </g>
+
+    
+    
+    <rect x="330" y="190" width="130" height="220" fill="url(#brickGradient)" rx="2"/>
+    
+    <rect x="357" y="180" width="45" height="230" fill="url(#slateGradient)"/>
+    <rect x="330" y="180" width="130" height="12" fill="#232B33"/> 
+
+    
+    
+    <g fill="#FBEBCE" opacity="0.85">
+      <rect x="365" y="200" width="12" height="16" rx="1"/>
+      <rect x="382" y="200" width="12" height="16" rx="1"/>
+      <rect x="365" y="225" width="12" height="16" rx="1"/>
+      <rect x="382" y="225" width="12" height="16" rx="1"/>
+      <rect x="365" y="250" width="12" height="16" rx="1"/>
+      <rect x="382" y="250" width="12" height="16" rx="1"/>
+      <rect x="365" y="275" width="12" height="16" rx="1"/>
+      <rect x="382" y="275" width="12" height="16" rx="1"/>
+      <rect x="365" y="300" width="12" height="16" rx="1"/>
+      <rect x="382" y="300" width="12" height="16" rx="1"/>
+      <rect x="365" y="325" width="12" height="16" rx="1"/>
+      <rect x="382" y="325" width="12" height="16" rx="1"/>
+    </g>
+    
+    <g fill="#FBEBCE" opacity="0.75">
+      <rect x="416" y="200" width="12" height="16" rx="1"/>
+      <rect x="436" y="200" width="12" height="16" rx="1"/>
+      <rect x="416" y="225" width="12" height="16" rx="1"/>
+      <rect x="436" y="225" width="12" height="16" rx="1"/>
+      <rect x="416" y="250" width="12" height="16" rx="1"/>
+      <rect x="436" y="250" width="12" height="16" rx="1"/>
+      <rect x="416" y="275" width="12" height="16" rx="1"/>
+      <rect x="436" y="275" width="12" height="16" rx="1"/>
+      <rect x="416" y="300" width="12" height="16" rx="1"/>
+      <rect x="436" y="300" width="12" height="16" rx="1"/>
+      <rect x="416" y="325" width="12" height="16" rx="1"/>
+      <rect x="436" y="325" width="12" height="16" rx="1"/>
+    </g>
+
+    
+    <rect x="175" y="230" width="162" height="180" fill="url(#creamGradient)"/>
+    <rect x="170" y="222" width="172" height="10" fill="#232B33"/> 
+    
+    
+    <g fill="#2B3642">
+      
+      <rect x="195" y="245" width="22" height="28" rx="2" fill="#FBEBCE"/>
+      <rect x="225" y="245" width="22" height="28" rx="2" fill="#FBEBCE"/>
+      <rect x="265" y="245" width="22" height="28" rx="2" fill="#FBEBCE"/>
+      <rect x="295" y="245" width="22" height="28" rx="2" fill="#FBEBCE"/>
+
+      <rect x="195" y="285" width="22" height="28" rx="2" fill="#FBEBCE"/>
+      <rect x="225" y="285" width="22" height="28" rx="2" fill="#FBEBCE"/>
+      <rect x="265" y="285" width="22" height="28" rx="2" fill="#FBEBCE"/>
+      <rect x="295" y="285" width="22" height="28" rx="2" fill="#FBEBCE"/>
+
+      
+      <rect x="190" y="335" width="132" height="75" rx="3" fill="#FFEAA5"/>
+      <rect x="185" y="330" width="142" height="8" fill="#3A4652"/> 
+      
+      
+      <rect x="210" y="355" width="24" height="55" fill="#3A4652"/>
+      <rect x="244" y="355" width="24" height="55" fill="#3A4652"/>
+      <rect x="278" y="355" width="24" height="55" fill="#3A4652"/>
+    </g>
+
+    
+    <path d="M 30 405 C 110 395, 150 400, 190 410 L 30 410 Z" fill="#3A4A38" opacity="0.7"/>
+    <path d="M 482 405 C 402 395, 362 400, 322 410 L 482 410 Z" fill="#3A4A38" opacity="0.7"/>
+  </g>
+
+  
+  
+  <g filter="url(#dropShadow)">
+    
+    <text x="256" y="130" font-family="'Lora', 'Georgia', serif" font-size="115" font-weight="bold" font-style="italic" text-anchor="middle" fill="url(#goldGradient)" stroke="#472C00" stroke-width="2" letter-spacing="-2">G</text>
+  </g>
+
+  
+  <rect width="512" height="512" rx="112" fill="none" stroke="#FFFFFF" stroke-width="6" opacity="0.25"/>
+</svg>

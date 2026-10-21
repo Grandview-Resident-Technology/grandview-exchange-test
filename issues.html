@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Grandview Exchange – Current Issues</title>
+
+	<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet" />
+	<link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+
+<body class="help-site">
+	<!-- HEADER IMAGE -->
+	<header class="site-header">
+		<img src="assets/img/coverphoto.png" alt="Grandview Exchange -- Connecting Our Community" />
+	</header>
+
+	<!-- PAGE INTRO -->
+	<section class="welcome">
+		<div class="container">
+			<h1>Current Issues & Updates</h1>
+			<p>
+				This page shows the current questions, technical issues,
+				feature requests, and improvements being tracked for
+				Grandview Exchange. Items update automatically as work
+				progresses. You can browse by category, type, or status to
+				see what’s new and what’s in progress.
+			</p>
+			<a href="index.html" style="font-size: 0.9rem">← Back to Home</a>
+		</div>
+	</section>
+
+	<!-- BUTTON CONTROLS -->
+	<section class="section">
+		<div class="container">
+			<div class="view-controls">
+				<!-- VIEW TYPE BUTTONS -->
+				<div class="button-group">
+					<button class="action-btn active" id="btn-list">
+						List View
+					</button>
+					<button class="action-btn" id="btn-card">
+						Card View
+					</button>
+				</div>
+
+				<!-- OPEN/CLOSED BUTTONS -->
+				<div class="button-group">
+					<button class="action-btn active" id="btn-open">
+						Open Issues
+					</button>
+					<button class="action-btn" id="btn-closed">
+						Closed Issues
+					</button>
+				</div>
+			</div>
+
+			<h2 class="section-title">Live Issue Tracker</h2>
+
+			<div class="fullwidth-embed" id="embed-container">
+				<!-- Default: List View + Open Issues -->
+				<iframe class="airtable-embed" src="https://airtable.com/embed/appFAdIhnKyKmTkFF/shrdKbvEDYpXYVSe5" frameborder="0" height="650">
+				</iframe>
+			</div>
+
+			<p style="
+                        font-size: 0.95rem;
+                        color: var(--text-muted);
+                        margin-top: 8px;
+                    ">
+				To view the complete details of the issue, click on the
+				title (bold text) above the Description.
+			</p>
+		</div>
+	</section>
+
+	<!-- FIELD DEFINITIONS -->
+	<section class="section">
+		<div class="container">
+			<h2 class="section-title">How to Read This Page</h2>
+
+			<p style="margin-bottom: 18px">
+				Below are simple explanations of the fields you’ll see in
+				the issue tracker. These help clarify how items are
+				categorized and what each status means.
+			</p>
+
+			<div class="card-group">
+				<div class="group-label">Field Definitions</div>
+
+				<div class="cards">
+					<div class="card">
+						<div class="card-header">
+							<span class="card-icon">📝</span>
+							<span class="card-title">Type</span>
+						</div>
+						<div class="card-desc">
+							Identifies the kind of issue:
+							<strong>Question</strong>,
+							<strong>Feature Request</strong>,
+							<strong>Technical Issue/Bug</strong>,
+							<strong>Usability Issue</strong>, or
+							<strong>Content Issue</strong>.
+						</div>
+					</div>
+
+					<div class="card">
+						<div class="card-header">
+							<span class="card-icon">📂</span>
+							<span class="card-title">Category</span>
+						</div>
+						<div class="card-desc">
+							Indicates where the issue occurs, such as
+							Posting & Messages, Email Delivery, Mobile App,
+							Browser/Desktop, Documentation, or Training.
+						</div>
+					</div>
+
+					<div class="card">
+						<div class="card-header">
+							<span class="card-icon">📱</span>
+							<span class="card-title">Environment</span>
+						</div>
+						<div class="card-desc">
+							Shows the platform where the issue appears: Web,
+							iPhone, Android, Email, or Unknown.
+						</div>
+					</div>
+
+					<div class="card">
+						<div class="card-header">
+							<span class="card-icon">⭐</span>
+							<span class="card-title">Priority</span>
+						</div>
+						<div class="card-desc">
+							Indicates urgency: Low, Medium, High, or Urgent.
+							Helps determine what should be addressed first.
+						</div>
+					</div>
+
+					<div class="card">
+						<div class="card-header">
+							<span class="card-icon">🔄</span>
+							<span class="card-title">Status</span>
+						</div>
+						<div class="card-desc">
+							Tracks progress: New, In Review, In Progress,
+							Waiting for Info, Planned, Resolved, or Closed.
+						</div>
+					</div>
+
+					<div class="card">
+						<div class="card-header">
+							<span class="card-icon">🛠️</span>
+							<span class="card-title">Resolution Method</span>
+						</div>
+						<div class="card-desc">
+							Explains how the issue was resolved:
+							Training/Documentation, Site Change, Process
+							Change, No Action Needed, Duplicate, or Other.
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- FOOTER -->
+	<footer class="site-footer">
+		<p>
+			© 2026 Grandview Exchange ·
+			Questions? <a href="mailto:admin@grandviewexchange.com">Contact Us</a>
+		</p>
+	</footer>
+
+	<!-- SCRIPT FOR BUTTON LOGIC -->
+	<script>
+		const embedContainer = document.getElementById("embed-container");
+
+		// Buttons
+		const btnList = document.getElementById("btn-list");
+		const btnCard = document.getElementById("btn-card");
+		const btnOpen = document.getElementById("btn-open");
+		const btnClosed = document.getElementById("btn-closed");
+
+		// Embed URLs
+		const listOpen =
+			"https://airtable.com/embed/appFAdIhnKyKmTkFF/shr2OBaErZw1ufrg2";
+		const cardOpen =
+			"https://airtable.com/embed/appFAdIhnKyKmTkFF/shrYLSUy3B6Dsctzf?viewControls=off";
+
+		// Placeholder for closed issues (use open issues for now)
+		const listClosed = "https://airtable.com/embed/appFAdIhnKyKmTkFF/shrkPfijCixCbrpTQ";
+		const cardClosed = "https://airtable.com/embed/appFAdIhnKyKmTkFF/shrzD1E4uTbM33Fvc";
+
+		function updateEmbed() {
+			const isList = btnList.classList.contains("active");
+			const isOpen = btnOpen.classList.contains("active");
+
+			let url = "";
+
+			if (isList && isOpen) url = listOpen;
+			if (isList && !isOpen) url = listClosed;
+			if (!isList && isOpen) url = cardOpen;
+			if (!isList && !isOpen) url = cardClosed;
+
+			embedContainer.innerHTML = `
+        <iframe class="airtable-embed" src="${url}" frameborder="0" height="650"></iframe>
+      `;
+		}
+
+		function activate(btn, group) {
+			group.forEach((b) => b.classList.remove("active"));
+			btn.classList.add("active");
+			updateEmbed();
+		}
+
+		btnList.onclick = () => activate(btnList, [btnList, btnCard]);
+		btnCard.onclick = () => activate(btnCard, [btnList, btnCard]);
+
+		btnOpen.onclick = () => activate(btnOpen, [btnOpen, btnClosed]);
+		btnClosed.onclick = () => activate(btnClosed, [btnOpen, btnClosed]);
+	</script>
+</body>
+
+</html>

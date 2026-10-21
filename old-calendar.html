@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>The Grandview Community Calendar</title>
+
+	<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+
+	
+	<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@fullcalendar/google-calendar@6.1.10/index.global.min.js"></script>
+	<script src="assets/js/global.js" defer></script>
+
+</head>
+
+<body>
+
+	<header class="site-header">
+		<img src="assets/img/coverphoto.png" alt="Grandview Exchange Banner" />
+	</header>
+
+	<div class="site-shell">
+
+		<div id="site-nav"></div>
+
+		<section class="page-intro-summary">
+			<h1>The Grandview Community Calendar</h1>
+			<p class="lead-text">
+				This calendar shows upcoming activities, meetings, and events happening at The Grandview. You can view
+				it online, print it, or subscribe to it so events will show up on your Google, Apple, or
+				Microsoft calendar.
+			</p>
+		</section>
+
+		<div class="main-layout-wrapper">
+
+			<main class="main-content-area rich-text-area">
+				<div class="section-block">
+					<div id="calendar"></div>
+				</div>
+			</main>
+
+			<aside class="site-sidebar section-block rich-text-area">
+
+				<h2 class="sidebar-heading">Options</h2>
+				<p class="sidebar-intro">Choose a calendar view and what events to include.</p>
+
+				<div class="sidebar-item">
+					<h3>Select View</h3>
+					<div style="display: flex; flex-direction: column; gap: var(--space-sm); margin-top: var(--space-xs);">
+						<label style="font-size: 1.15rem; display: inline-flex; align-items: center; gap: var(--space-sm); color: var(--text-body); font-weight: 500; cursor: pointer;">
+							<input type="radio" name="view" value="listMonth" checked style="width: 16px; height: 16px; accent-color: var(--teal);"> Agenda
+						</label>
+						<label style="font-size: 1.15rem; display: inline-flex; align-items: center; gap: var(--space-sm); color: var(--text-body); font-weight: 500; cursor: pointer;">
+							<input type="radio" name="view" value="timeGridWeek" style="width: 16px; height: 16px; accent-color: var(--teal);"> Week
+						</label>
+						<label style="font-size: 1.15rem; display: inline-flex; align-items: center; gap: var(--space-sm); color: var(--text-body); font-weight: 500; cursor: pointer;">
+							<input type="radio" name="view" value="dayGridMonth" style="width: 16px; height: 16px; accent-color: var(--teal);"> Month
+						</label>
+					</div>
+				</div>
+
+				<div class="sidebar-item">
+					<h3>Show Calendars</h3>
+					<div id="calendar-checkboxes-container" style="display: flex; flex-direction: column; gap: var(--space-sm); margin-top: var(--space-xs);">
+						<!-- Dynamically generated via JS from calendars.json -->
+					</div>
+					<hr style="margin: var(--space-sm) 0;">
+					<label style="font-size: 1.15rem; display: inline-flex; align-items: center; gap: var(--space-sm); color: var(--text-body); font-weight: 600; cursor: pointer;">
+						<input type="checkbox" id="check-all-cals" style="width: 16px; height: 16px; accent-color: var(--teal);"> Check All Calendars
+					</label>
+					<label style="font-size: 1.15rem; display: inline-flex; align-items: center; gap: var(--space-sm); color: var(--text-body); font-weight: 600; cursor: pointer;">
+						<input type="checkbox" id="uncheck-all-cals" style="width: 16px; height: 16px; accent-color: var(--teal);"> Uncheck All Calendars
+					</label>
+				</div>
+
+				<div class="sidebar-item">
+					<h3>Take It With You</h3>
+					<p>
+						You can print your calendar or subscribe to have it show up in your Google, Apple, or Microsoft
+						calendar app.
+					</p>
+					<a href="#" id="print-calendar" class="sidebar-link">🖨️ Print Calendar →</a>
+					<a href="#" id="open-subscribe-modal" class="sidebar-link">📅 Subscribe →</a>
+				</div>
+
+			</aside>
+
+		</div>
+	</div>
+
+	<footer class="site-footer">
+		<p>
+			© 2026 Grandview Exchange ·
+			Questions? <a href="mailto:admin@grandviewexchange.com">Contact Us</a>
+		</p>
+	</footer>
+
+	<script>
+document.addEventListener('DOMContentLoaded', async function () {
+
+    /* ------------------------------
+       DYNAMIC COLOR GENERATOR
+    --------------------------------*/
+    function generateColor(index, total) {
+        const hue = (index * (360 / Math.max(total, 1)) + 15) % 360;
+        return `hsl(${Math.round(hue)}, 70%, 45%)`;
+    }
+
+    /* ------------------------------
+       FETCH CALENDAR CONFIGURATION
+    --------------------------------*/
+    let calendarConfigs = [];
+    try {
+        const res = await fetch('calendars.json');
+        if (!res.ok) throw new Error(`HTTP ${res.status}: Failed to fetch calendars.json`);
+        calendarConfigs = await res.json();
+    } catch (err) {
+        console.error("Calendar initialization error:", err);
+        document.getElementById('calendar').innerHTML = 
+            `<div style="color: red; padding: 20px; font-weight: bold;">
+                Error loading calendar configurations. If testing locally, please run through a local web server (e.g., Live Server or python -m http.server).
+             </div>`;
+        return;
+    }
+
+    /* ------------------------------
+       BUILD SOURCES & UI ELEMENTS
+    --------------------------------*/
+    const eventSourceConfigs = {};
+    const subscribeLinks = {};
+    const container = document.getElementById('calendar-checkboxes-container');
+    const selectDropdown = document.getElementById('calendarSelect');
+
+    container.innerHTML = '';
+    selectDropdown.innerHTML = '';
+
+    calendarConfigs.forEach((cal, idx) => {
+        const assignedColor = (cal.color && /^#[0-9A-F]{6}$/i.test(cal.color)) 
+            ? cal.color 
+            : generateColor(idx, calendarConfigs.length);
+
+        eventSourceConfigs[cal.id] = {
+            id: cal.id,
+            googleCalendarId: cal.googleCalendarId,
+            color: assignedColor
+        };
+
+        subscribeLinks[cal.id] = cal.googleCalendarId;
+
+        // Create Checkbox UI
+        const label = document.createElement('label');
+        label.style.cssText = 'font-size: 1.15rem; display: inline-flex; align-items: center; gap: var(--space-sm); color: var(--text-body); font-weight: 500; cursor: pointer;';
+        label.innerHTML = `
+            <input type="checkbox" class="cal-toggle" data-cal="${cal.id}" checked style="width: 16px; height: 16px; accent-color: ${assignedColor};"> 
+            ${cal.name}
+        `;
+        container.appendChild(label);
+
+        // Create Subscription Option
+        const option = document.createElement('option');
+        option.value = cal.id;
+        option.textContent = cal.name;
+        selectDropdown.appendChild(option);
+    });
+
+    /* ------------------------------
+       FULLCALENDAR MOUNTING ENGINE
+    --------------------------------*/
+    const calendarEl = document.getElementById('calendar');
+
+    const calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: 'listMonth',
+        height: 'auto',
+        initialDate: new Date(),
+        validRange: {
+            start: new Date()
+        },
+        headerToolbar: {
+            left: 'prev',
+            center: 'title',
+            right: 'next'
+        },
+        buttonText: {
+            prev: '< Previous',
+            next: 'Next >'
+        },
+        googleCalendarApiKey: 'AIzaSyAkm3pk9TEvD2qZekyq8Exw99k4WYmPK3E',
+        eventSources: Object.values(eventSourceConfigs),
+        eventClick: function(info) {
+            info.jsEvent.preventDefault();
+            const event = info.event;
+
+            document.getElementById('modalTitle').textContent = event.title;
+            document.getElementById('modalDate').textContent = event.start.toLocaleString('en-US', {
+                weekday: 'long', month: 'long', day: 'numeric', hour: 'numeric', minute: '2-digit'
+            });
+            document.getElementById('modalLocation').textContent =
+                event.extendedProps.location ? `Location: ${event.extendedProps.location}` : '';
+
+            let desc = event.extendedProps.description || "";
+            desc = desc.replace(/<(script|style)[^>]*>[\s\S]*?<\/(script|style)>/gi, '');
+            desc = desc.includes('<a ') ? desc.replace(/\n/g, '<br>') : desc.replace(/(https?:\/\/[^\s]+)/g, '<a href="$1" target="_blank" rel="noopener">$1</a>').replace(/\n/g, '<br>');
+
+            document.getElementById('modalDescription').innerHTML = desc;
+            document.getElementById('eventModal').style.display = 'flex';
+        }
+    });
+
+    calendar.render();
+
+    /* ------------------------------
+       DYNAMIC ATTACHMENT OF LISTENERS
+    --------------------------------*/
+    const individualToggles = document.querySelectorAll('.cal-toggle');
+    const checkAllBox = document.getElementById('check-all-cals');
+    const uncheckAllBox = document.getElementById('uncheck-all-cals');
+
+    individualToggles.forEach(cb => {
+        cb.addEventListener('change', function() {
+            const id = this.dataset.cal;
+            const existing = calendar.getEventSourceById(id);
+
+            if (this.checked) {
+                if (!existing && eventSourceConfigs[id]) calendar.addEventSource(eventSourceConfigs[id]);
+            } else {
+                if (existing) existing.remove();
+            }
+
+            const checkedCount = document.querySelectorAll('.cal-toggle:checked').length;
+            checkAllBox.checked = (checkedCount === individualToggles.length);
+            uncheckAllBox.checked = (checkedCount === 0);
+        });
+    });
+
+    function setAllCalendarsState(shouldCheck) {
+        individualToggles.forEach(cb => {
+            if (cb.checked !== shouldCheck) {
+                cb.checked = shouldCheck;
+                const id = cb.dataset.cal;
+                const existing = calendar.getEventSourceById(id);
+
+                if (shouldCheck) {
+                    if (!existing && eventSourceConfigs[id]) calendar.addEventSource(eventSourceConfigs[id]);
+                } else {
+                    if (existing) existing.remove();
+                }
+            }
+        });
+    }
+
+    checkAllBox.addEventListener('change', function() {
+        if (this.checked) {
+            uncheckAllBox.checked = false;
+            setAllCalendarsState(true);
+        }
+    });
+
+    uncheckAllBox.addEventListener('change', function() {
+        if (this.checked) {
+            checkAllBox.checked = false;
+            setAllCalendarsState(false);
+        }
+    });
+
+    // Sync initial checkbox state on load
+    if (individualToggles.length > 0) {
+        checkAllBox.checked = (document.querySelectorAll('.cal-toggle:checked').length === individualToggles.length);
+    }
+
+    document.querySelectorAll('input[name="view"]').forEach(radio => {
+        radio.addEventListener('change', () => calendar.changeView(radio.value));
+    });
+
+    /* ------------------------------
+       MODAL & PRINT LISTENERS
+    --------------------------------*/
+    document.getElementById('print-calendar').onclick = (e) => {
+        e.preventDefault();
+        calendar.changeView('listMonth');
+        setTimeout(() => window.print(), 200);
+    };
+
+    const subscribeModal = document.getElementById('subscribeModal');
+    document.getElementById('open-subscribe-modal').onclick = (e) => { e.preventDefault(); subscribeModal.style.display = 'flex'; };
+    document.getElementById('subscribeModalClose').onclick = () => { subscribeModal.style.display = 'none'; };
+    document.getElementById('modalClose').onclick = () => { document.getElementById('eventModal').style.display = 'none'; };
+});
+
+	</script>
+
+	<div id="eventModal" class="modal-overlay" style="display:none;">
+		<div class="modal-card">
+			<button class="modal-close" id="modalClose">×</button>
+			<h3 id="modalTitle" style="font-family: 'Lora', serif; margin-bottom: 8px;"></h3>
+			<p id="modalDate" style="font-size: 1rem; color: var(--text-dark); margin-bottom: 6px;"></p>
+			<p id="modalLocation" style="font-size: 1rem; font-weight: 600; color: var(--text-dark); margin-bottom: 12px;"></p>
+			<p id="modalDescription" style="line-height: 1.5; color: var(--text-body);"></p>
+		</div>
+	</div>
+
+	<div id="subscribeModal" class="modal-overlay" style="display:none;">
+		<div class="modal-card">
+			<button class="modal-close" id="subscribeModalClose">×</button>
+
+			<h3 style="font-family: 'Lora', serif; font-size: 1.4rem; color: var(--text-dark); margin-bottom: 16px;">
+				Subscribe to Grandview Calendars
+			</h3>
+
+			<div style="margin-bottom: var(--space-md);">
+				<label for="calendarSelect" style="display: block; margin-bottom: 6px; color: var(--text-dark);">
+					<strong>Select a calendar:</strong>
+				</label>
+				<select id="calendarSelect" class="modal-select" style="width: 100%; padding: 8px; border-radius: 6px; border: 1px solid var(--border); font-size: 1rem;">
+					<!-- Dynamically generated via JS from calendars.json -->
+				</select>
+			</div>
+
+			<div class="modal-section" style="margin: 20px 0;">
+				<strong style="display: block; margin-bottom: 8px; color: var(--text-dark);">Choose your calendar app:</strong>
+				<div style="display: flex; flex-direction: column; gap: 8px;">
+					<label style="font-size: 1rem; display: inline-flex; align-items: center; gap: 8px; cursor: pointer;">
+						<input type="radio" name="subPlatform" value="google" checked style="accent-color: var(--teal);"> Google Calendar
+					</label>
+					<label style="font-size: 1rem; display: inline-flex; align-items: center; gap: 8px; cursor: pointer;">
+						<input type="radio" name="subPlatform" value="apple" style="accent-color: var(--teal);"> Apple Calendar
+					</label>
+					<label style="font-size: 1rem; display: inline-flex; align-items: center; gap: 8px; cursor: pointer;">
+						<input type="radio" name="subPlatform" value="outlook" style="accent-color: var(--teal);"> Outlook / Other
+					</label>
+				</div>
+			</div>
+
+			<button id="subscribeNow" class="btn" style="display: block; margin: var(--space-lg) auto 0; padding: 10px 24px;">
+				Subscribe
+			</button>
+		</div>
+	</div>
+
+</body>
+
+</html>

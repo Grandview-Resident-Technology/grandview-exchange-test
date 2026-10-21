@@ -1,0 +1,91 @@
+/* ============================================
+   Base Styles -- Tokens, Resets, Typography
+============================================ */
+
+/* ---- Design Tokens ---- */
+:root {
+  --teal: #0d7377;
+  --teal-dark: #0a5c60;
+  --teal-light: #e6f4f4;
+  --gold: #c8922a;
+
+  --text-dark: #1a2e35;
+  --text-body: #3a4a50;
+  --text-muted: #6b7c82;
+
+  --bg-white: #ffffff;
+  --bg-page: #eef6f6;
+  --border: #d0e0e1;
+
+  --shadow-card: 0 2px 6px rgba(0, 0, 0, 0.08);
+
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --content-width: 1050px;
+}
+
+/* ---- Global Reset ---- */
+body {
+  font-family: 'Source Sans 3', sans-serif;
+  color: var(--text-body);
+  background: var(--bg-page);
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+  /* Centralized 1.15rem global font standard */
+  font-size: 1.15rem;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ---- Typography ---- */
+h1,
+h2,
+h3,
+h4 {
+  color: var(--text-dark);
+  margin: 0 0 var(--space-sm);
+  line-height: 1.25;
+}
+
+h1 {
+  font-size: 2.2rem;
+}
+
+h2 {
+  font-size: 1.75rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+}
+
+h4 {
+  font-size: 1.1rem;
+}
+
+p,
+li {
+  font-size: 1.15rem;
+  color: var(--text-body);
+  margin: 0 0 var(--space-sm);
+}
+
+p:last-of-type {
+  margin-bottom: 0;
+}
+
+ul {
+  margin: var(--space-xs) 0 var(--space-sm);
+  padding-left: 20px;
+}
+
+li {
+  margin-bottom: var(--space-xs);
+}

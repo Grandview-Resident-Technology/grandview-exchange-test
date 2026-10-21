@@ -1,0 +1,170 @@
+[
+  {
+    "id": "grandview",
+    "name": "Grandview Events",
+    "url": "https://p59-caldav.icloud.com/published/2/MTYyNTMyMjIyMTYyNTMyMhUslaG4P2zIXvBAw0QnMBl0_uzGG220ABhk4yVF49Lqth_4D51oOz9aiM2Sn6SW9IQlgj5605VqCuAbmLEF6XA",
+    "color": "#FF5733"
+  },
+  {
+    "id": "arts",
+    "name": "Arts and Crafts",
+    "url": "https://p59-caldav.icloud.com/published/2/MTYyNTMyMjIyMTYyNTMyMhUslaG4P2zIXvBAw0QnMBmXEMwRGdlGxLD-SEmoEn-f1mrc5A9V16URZe-xent0FKsruGUZ0wa0udr9vnv59NA",
+    "color": "#33FF57"
+  },
+  {
+    "id": "bible",
+    "name": "Bible Study",
+    "url": "https://p59-caldav.icloud.com/published/2/MTYyNTMyMjIyMTYyNTMyMhUslaG4P2zIXvBAw0QnMBkS-MGJj9q6f9rOvywDzAcU2qWUvwha9gPh592cPaP5ukkzYXowvSnEgUN8dx8TgKk",
+    "color": "#33FF57"
+  },
+  {
+    "id": "Billiards",
+    "name": "Billiards",
+    "url": "https://p59-caldav.icloud.com/published/2/MTYyNTMyMjIyMTYyNTMyMhUslaG4P2zIXvBAw0QnMBkp_5Rtu9c3FHKFD751Gb1qUG31x30iyq2kFQptX7ImqSRgiMiR3WLf__8NsuRcIDo",
+    "color": "#33FF57"
+  },
+  {
+    "id": "bocce",
+    "name": "Bocce Club",
+    "url": "https://p59-caldav.icloud.com/published/2/MTYyNTMyMjIyMTYyNTMyMhUslaG4P2zIXvBAw0QnMBnIZSL3KWEcSGzxZBvtnd6GhlS4ppFZVMCUyL7EcRXxrsTwqvZwuouTfpIk5wBppMA",
+    "color": "#3357FF"
+  },
+  {
+    "id": "books",
+    "name": "Book Clubs",
+    "url": "https://p59-caldav.icloud.com/published/2/MTYyNTMyMjIyMTYyNTMyMhUslaG4P2zIXvBAw0QnMBlozpQwcvDrlL3b8nP0fUTQD0EoWlP-mMVoqTcbEAL-UOBVPu1ossyYxsJ-gI4nATk",
+    "color": "#40E0D0"
+  },
+  {
+    "id": "canasta",
+    "name": "Canasta Club",
+    "url": "https://GrandviewExchange.groups.io/g/modern-canasta/ics/15251426/1543873595/feed.ics",
+    "color": "#FF33A1"
+  },
+  {
+    "id": "cards",
+    "name": "Cards and Conversation",
+    "url": "https://GrandviewExchange.groups.io/g/cardsandconversations/ics/15470084/1484935186/feed.ics",
+    "color": "#FF7F50"
+  },
+  {
+    "id": "caregiver",
+    "name": "Caregiver Support",
+    "url": "https://p59-caldav.icloud.com/published/2/MTYyNTMyMjIyMTYyNTMyMhUslaG4P2zIXvBAw0QnMBlAvmeQt3-IK-g9U9aAqSNFyhWmZizDsTVKhDfW0xAkpF34rWAVi9Yo-egj0473PCM",
+    "color": "#A133FF"
+  },
+  {
+    "id": "itclub",
+    "name": "Computer/IT Club",
+    "url": "https://p59-caldav.icloud.com/published/2/MTYyNTMyMjIyMTYyNTMyMhUslaG4P2zIXvBAw0QnMBlTZCe6XzFQcWrAtvehKWIJkRSC-F8CCnuKbI_fKtlKI53Q1Q_MtqJ-h9BLZuvbRmc",
+    "color": "#33A1FF"
+  },
+  {
+    "id": "fitness",
+    "name": "Fitness",
+    "url": "https://p59-caldav.icloud.com/published/2/MTYyNTMyMjIyMTYyNTMyMhUslaG4P2zIXvBAw0QnMBllhEyuLJmKhbpxYhUD8vOe3nCD-ANYpF5kSv85P_OsFB_kzQkhMASItn88vXeTOlc",
+    "color": "#FFD700"
+  },
+  {
+    "id": "genealogy",
+    "name": "Genealogy Club",
+    "url": "https://p59-caldav.icloud.com/published/2/MTYyNTMyMjIyMTYyNTMyMhUslaG4P2zIXvBAw0QnMBnohyciMsgXqmK82vlSjQ5RppSlQPcdKafjnZLSOiq68LC8SF4uM6ees_BJhyQuHBQ",
+    "color": "#A133FF"
+  },
+  {
+    "id": "grand",
+    "name": "The Grand Club",
+    "url": "https://p59-caldav.icloud.com/published/2/MTYyNTMyMjIyMTYyNTMyMhUslaG4P2zIXvBAw0QnMBkOP_eogZN5yOi5ZoHJ88ocEpLAGte41hrVWXwaMdmAug92QYuOIOFpkBaE6zK9ovs",
+    "color": "#A133FF"
+  },
+  {
+    "id": "history",
+    "name": "History Club",
+    "url": "https://p59-caldav.icloud.com/published/2/MTYyNTMyMjIyMTYyNTMyMhUslaG4P2zIXvBAw0QnMBmbmUL0re88hmyRNtztOph6rpnNFR4ltoKlwgPGxrFEaLv4VNwNmfj4xpu8DGAm7Gs",
+    "color": "#00FFFF"
+  },
+  {
+    "id": "interest",
+    "name": "Interest Groups",
+    "url": "https://p59-caldav.icloud.com/published/2/MTYyNTMyMjIyMTYyNTMyMhUslaG4P2zIXvBAw0QnMBnZtU9_wlVD6aCIq8mQX0cE320fhvRSeos9liH2GInxpUIM6GFb3lmtFkVVc49HNrM",
+    "color": "#FF00FF"
+  },
+  {
+    "id": "jewish",
+    "name": "Jewish Congregation",
+    "url": "https://p59-caldav.icloud.com/published/2/MTYyNTMyMjIyMTYyNTMyMhUslaG4P2zIXvBAw0QnMBm6Vx_zFhxfq1d07798G3Pg1z36gvrcnEuUub5SuJoQXJYzqWkD4TFqsY8pi7UscgY",
+    "color": "#FF00FF"
+  },
+  {
+    "id": "kcart",
+    "name": "Kim Cohen Art Club",
+    "url": "https://GrandviewExchange.groups.io/g/kim-cohen-art/ics/15271140/70025334/feed.ics",
+    "color": "#800000"
+  },
+  {
+    "id": "mahjongg",
+    "name": "Mah Jongg Club",
+    "url": "https://p59-caldav.icloud.com/published/2/MTYyNTMyMjIyMTYyNTMyMhUslaG4P2zIXvBAw0QnMBnMdZ4h3mmsr1yzplD05qyeVPcYBd4dO52bEQfb6A6NyaVWyLWAPNerKaJwPVYjg1s",
+    "color": "#008000"
+  },
+  {
+    "id": "medical",
+    "name": "Medical Center",
+    "url": "https://p59-caldav.icloud.com/published/2/MTYyNTMyMjIyMTYyNTMyMhUslaG4P2zIXvBAw0QnMBnAYyZPsGN2EzgbYom2_7Ra9s-5YV_c2-9gF59vEs258WlMq5dWTmUDF4GaALsJza8",
+    "color": "#008000"
+  },
+  {
+    "id": "movie",
+    "name": "Movie Club",
+    "url": "https://GrandviewExchange.groups.io/g/movie-club/ics/15379121/482860058/feed.ics",
+    "color": "#008000"
+  },
+  {
+    "id": "photography",
+    "name": "Photography Club",
+    "url": "https://GrandviewExchange.groups.io/g/Photography-Club/ics/15251427/1661741049/feed.ics",
+    "color": "#00FFFF"
+  },
+  {
+    "id": "pickleball",
+    "name": "Pickleball Club",
+    "url": "https://p59-caldav.icloud.com/published/2/MTYyNTMyMjIyMTYyNTMyMhUslaG4P2zIXvBAw0QnMBnDSNOznP9jiPpnu89jxV-njrySD9NRUgkw1lfz_uuMF4z7TbIbK2UInrFoKF5CCt4",
+    "color": "#00FFFF"
+  },
+  {
+    "id": "rac",
+    "name": "Resident Advisory Council",
+    "url": "https://p59-caldav.icloud.com/published/2/MTYyNTMyMjIyMTYyNTMyMhUslaG4P2zIXvBAw0QnMBl4_maLbE84X8y1i7LNt-NnjmLtuxZpESBAVEVThXi2mEES-I2Y7UH9VCauAeMxb14",
+    "color": "#000080"
+  },
+  {
+    "id": "ressvcs",
+    "name": "Resident Services",
+    "url": "https://p59-caldav.icloud.com/published/2/MTYyNTMyMjIyMTYyNTMyMhUslaG4P2zIXvBAw0QnMBkrCdtPklj4Uu50ryNcJGA06kw5qmr7nSYBw4xiQe4VoJbrHOYLHuGOTcx6I9Q-7hY",
+    "color": "#000080"
+  },
+  {
+    "id": "shuttle",
+    "name": "Shuttle Schedule",
+    "url": "https://p59-caldav.icloud.com/published/2/MTYyNTMyMjIyMTYyNTMyMhUslaG4P2zIXvBAw0QnMBkllw3saMadFVE6DmmxrWdY6nw8TXYygnGkXc0XP1rzdfU_RqL8K5ZU0GmcC0yUMdI",
+    "color": "#000080"
+  },
+  {
+    "id": "speaker",
+    "name": "Speaker Presentation",
+    "url": "https://p59-caldav.icloud.com/published/2/MTYyNTMyMjIyMTYyNTMyMhUslaG4P2zIXvBAw0QnMBlO_YnhxvJzK2HPrTS66iMpRfW5opZj80avveXEyksCS90woMJB_FWTONUcuFVTjGM",
+    "color": "#808000"
+  },
+  {
+    "id": "mobility",
+    "name": "Transportation Club",
+    "url": "https://p59-caldav.icloud.com/published/2/MTYyNTMyMjIyMTYyNTMyMhUslaG4P2zIXvBAw0QnMBmfiCwVaKKSFUxw7_-mjKyeoQRuOduZ0V8iv_VTGMYUE0b-BXQki9nvevSHYaH6Zog",
+    "color": "#FF8C00"
+  },
+  {
+    "id": "tvclub",
+    "name": "TV Club",
+    "url": "https://p59-caldav.icloud.com/published/2/MTYyNTMyMjIyMTYyNTMyMhUslaG4P2zIXvBAw0QnMBkNQQ8eYMc7BOZSsb1vhNcPrgFT97JxSgD9n8df2ScvTuKH_fx0DxUTg4w4y6vLCGA",
+    "color": "#800080"
+  }
+]

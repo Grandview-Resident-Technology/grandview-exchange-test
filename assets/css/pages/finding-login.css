@@ -1,0 +1,9 @@
+/* ============================================================
+   Page -- Finding & Logging In Spacing Overrides
+============================================================ */
+
+/* Forces the main content's divider border to display under the description */
+.logging-in-area .section-desc + .grid .section-item-row:first-of-type {
+  border-top: 1px solid var(--border);
+  padding-top: var(--space-lg);
+}

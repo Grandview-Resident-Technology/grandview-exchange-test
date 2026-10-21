@@ -1,0 +1,28 @@
+/* ============================================================
+   Page -- Help Center Home Dashboard Fixes
+============================================================ */
+
+/* Force the horizontal content border divider to render on both columns */
+.help-dashboard-area .section-desc + .grid-2col .section-item-row {
+  border-top: 1px solid var(--border);
+  padding-top: var(--space-lg);
+  margin-top: 0;
+}
+
+/* Reverted: Drop internal grid rows and let text content flow naturally */
+.help-dashboard-area .section-item-row {
+  display: block;
+  height: auto;
+}
+
+/* Eliminate bottom margin from description to control spacing precisely via the link */
+.help-dashboard-area .section-item-desc {
+  margin-bottom: 0;
+}
+
+/* Apply a clean, consistent 24px space directly between the text and the link */
+.help-dashboard-area .section-item-action {
+  display: inline-block;
+  margin-top: var(--space-lg);
+  padding-top: 0;
+}
