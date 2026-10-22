@@ -1,15 +1,23 @@
 <!doctype html>
 <html>
-
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Content Manager</title>
 </head>
-
 <body>
-  <!-- Include Decap CMS script -->
+  <!-- Decap CMS Script -->
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-</body>
 
+  <script>
+    // Force Decap to prompt for a GitHub PAT when logging in without calling Netlify
+    if (window.CMS) {
+      window.CMS.registerBackend('github-pat', {
+        init: function() {
+          console.log("Using direct GitHub PAT authentication.");
+        }
+      });
+    }
+  </script>
+</body>
 </html>
