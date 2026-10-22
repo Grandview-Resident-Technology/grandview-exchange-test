@@ -1,3 +1,9 @@
 name = "grandview-decap-oauth"
 main = "index.js"
-compatibility_date = "2026-01-01"
+compatibility_date = "2026-10-01"
+
+[build]
+command = ""
+
+[observability]
+enabled = true
