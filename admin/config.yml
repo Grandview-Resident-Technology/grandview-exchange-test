@@ -2,7 +2,7 @@ backend:
   name: github
   repo: Grandview-Resident-Technology/grandview-exchange-test   # Replace with your exact GitHub repository name
   branch: main
-  base_url: https://https://decap-oauth-worker.leon-e4e.workers.dev/
+  base_url: https://decap-oauth-worker.leon-e4e.workers.dev/
   auth_endpoint: auth
 
 media_folder: "../assets/img"
