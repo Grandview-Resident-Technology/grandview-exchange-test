@@ -5,17 +5,156 @@ backend:
   base_url: https://decap-oauth-worker.leon-e4e.workers.dev
   auth_endpoint: auth
 
-# Media & Collection settings
-media_folder: "static/images"
-public_folder: "/images"
+media_folder: "assets/img"
+public_folder: "/assets/img"
 
 collections:
-  - name: "blog"
-    label: "Blog"
-    folder: "content/blog"
-    create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{title}}"
-    fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Publish Date", name: "date", widget: "datetime" }
-      - { label: "Body", name: "body", widget: "markdown" }
+  - name: "pages"
+    label: "Website Pages & Guides"
+    folder: "./"
+    create: false
+    extension: "html"
+    format: "raw"
+    files:
+      # --- Welcome Center (Home) ---
+      - label: "Welcome Center (Home)"
+        name: "home"
+        file: "index.html"
+        fields:
+          - label: "Page Title"
+            name: "title"
+            widget: "string"
+          - label: "Intro Summary Text"
+            name: "intro_text"
+            widget: "markdown"
+          - label: "Main Content Blocks"
+            name: "main_sections"
+            widget: "list"
+            fields:
+              - { label: "Section Heading", name: "heading", widget: "string" }
+              - { label: "Section Description", name: "description", widget: "markdown" }
+          - label: "Sidebar Items"
+            name: "sidebar_items"
+            widget: "list"
+            fields:
+              - { label: "Item Title", name: "title", widget: "string" }
+              - { label: "Item Description", name: "description", widget: "markdown" }
+              - { label: "Link Text", name: "link_text", widget: "string" }
+              - { label: "Link URL", name: "link_url", widget: "string" }
+
+      # --- Grandview Clubs ---
+      - label: "Grandview Clubs"
+        name: "clubs"
+        file: "clubs.html"
+        fields:
+          - label: "Page Title"
+            name: "title"
+            widget: "string"
+          - label: "Lead Text"
+            name: "lead_text"
+            widget: "markdown"
+          - label: "Club Entries"
+            name: "club_entries"
+            widget: "list"
+            fields:
+              - { label: "Club Name", name: "club_name", widget: "string" }
+              - { label: "Club Description", name: "description", widget: "markdown" }
+              - { label: "Club Leader Name & Email", name: "leader_info", widget: "string" }
+              - { label: "Subgroup URL (Optional)", name: "subgroup_url", widget: "string", required: false }
+
+      # --- Email Start Guide ---
+      - label: "Email Start Guide"
+        name: "email_guide"
+        file: "email-start-guide.html"
+        fields:
+          - label: "Page Title"
+            name: "title"
+            widget: "string"
+          - label: "Lead Text"
+            name: "lead_text"
+            widget: "markdown"
+          - label: "Guide Sections"
+            name: "guide_sections"
+            widget: "list"
+            fields:
+              - { label: "Section ID (for anchors)", name: "section_id", widget: "string", required: false }
+              - { label: "Section Heading", name: "heading", widget: "string" }
+              - { label: "Section Content", name: "content", widget: "markdown" }
+
+      # --- App Start Guide ---
+      - label: "App Start Guide"
+        name: "app_guide"
+        file: "app-start-guide.html"
+        fields:
+          - { label: "Page Title", name: "title", widget: "string" }
+          - { label: "Lead Text", name: "lead_text", widget: "markdown" }
+          - label: "Guide Sections"
+            name: "guide_sections"
+            widget: "list"
+            fields:
+              - { label: "Section Heading", name: "heading", widget: "string" }
+              - { label: "Section Content", name: "content", widget: "markdown" }
+
+      # --- Browser Start Guide ---
+      - label: "Browser Start Guide"
+        name: "browser_guide"
+        file: "browser-start-guide.html"
+        fields:
+          - { label: "Page Title", name: "title", widget: "string" }
+          - { label: "Lead Text", name: "lead_text", widget: "markdown" }
+          - label: "Guide Sections"
+            name: "guide_sections"
+            widget: "list"
+            fields:
+              - { label: "Section Heading", name: "heading", widget: "string" }
+              - { label: "Section Content", name: "content", widget: "markdown" }
+
+      # --- Club Leader Guide ---
+      - label: "Club Leader Guide"
+        name: "club_leader_guide"
+        file: "club-leader-guide.html"
+        fields:
+          - { label: "Page Title", name: "title", widget: "string" }
+          - { label: "Lead Text", name: "lead_text", widget: "markdown" }
+          - label: "Guide Sections"
+            name: "guide_sections"
+            widget: "list"
+            fields:
+              - { label: "Section Heading", name: "heading", widget: "string" }
+              - { label: "Section Content", name: "content", widget: "markdown" }
+
+      # --- Learn More Page ---
+      - label: "Learn More Page"
+        name: "learn_more"
+        file: "learn-more.html"
+        fields:
+          - { label: "Page Title", name: "title", widget: "string" }
+          - { label: "Lead Text", name: "lead_text", widget: "markdown" }
+          - label: "Content Sections"
+            name: "sections"
+            widget: "list"
+            fields:
+              - { label: "Section Heading", name: "heading", widget: "string" }
+              - { label: "Section Body", name: "body", widget: "markdown" }
+
+      # --- Login Guide Page ---
+      - label: "Login Guide Page"
+        name: "login_guide"
+        file: "login-guide.html"
+        fields:
+          - { label: "Page Title", name: "title", widget: "string" }
+          - { label: "Lead Text", name: "lead_text", widget: "markdown" }
+          - label: "Login Steps Sections"
+            name: "sections"
+            widget: "list"
+            fields:
+              - { label: "Section Heading", name: "heading", widget: "string" }
+              - { label: "Section Body", name: "body", widget: "markdown" }
+
+      # --- Calendar Page ---
+      - label: "Calendar Page"
+        name: "calendar"
+        file: "calendar.html"
+        fields:
+          - { label: "Page Title", name: "title", widget: "string" }
+          - { label: "Lead Text", name: "lead_text", widget: "markdown" }
