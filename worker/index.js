@@ -14,9 +14,10 @@ export default {
     if (url.pathname === "/callback") {
       const code = url.searchParams.get("code");
       if (!code) {
-        return new Response("Missing code parameter", { status: 400 });
+        return new Response("Missing code parameter from GitHub", { status: 400 });
       }
 
+      // Exchange the authorization code for an access token
       const response = await fetch("https://github.com/login/oauth/access_token", {
         method: "POST",
         headers: {
@@ -32,28 +33,37 @@ export default {
 
       const data = await response.json();
 
-      if (data.error) {
-        return new Response(data.error_description || "OAuth Error", { status: 400 });
+      // If GitHub returns an error, show it clearly instead of crashing the popup
+      if (data.error || !data.access_token) {
+        return new Response(
+          `GitHub OAuth Error: ${data.error_description || data.error || "Token exchange failed"}. Details: ${JSON.stringify(data)}`,
+          { status: 400, headers: { "Content-Type": "text/plain;charset=UTF-8" } }
+        );
       }
 
-      // Return script that passes the token to Decap CMS via postMessage window messaging
       const token = data.access_token;
-      const content = `
-        <script>
-          const token = "${token}";
-          const provider = "github";
-          function receiveMessage(e) {
-            window.opener.postMessage(
-              'authorization:' + provider + ':success:' + JSON.stringify({ token, provider }),
-              e.origin
-            );
-          }
-          window.addEventListener("message", receiveMessage, false);
-          window.opener.postMessage("authorizing:" + provider, "*");
-        </script>
-      `;
 
-      return new Response(content, {
+      // Success: pass token back to Decap CMS via window.postMessage
+      const html = `<!DOCTYPE html>
+        <html>
+          <head><title>Authentication Success</title></head>
+          <body>
+            <script>
+              const token = "${token}";
+              const provider = "github";
+              function receiveMessage(e) {
+                window.opener.postMessage(
+                  'authorization:' + provider + ':success:' + JSON.stringify({ token, provider }),
+                  e.origin
+                );
+              }
+              window.addEventListener("message", receiveMessage, false);
+              window.opener.postMessage("authorizing:" + provider, "*");
+            </script>
+          </body>
+        </html>`;
+
+      return new Response(html, {
         headers: { "Content-Type": "text/html;charset=UTF-8" }
       });
     }
