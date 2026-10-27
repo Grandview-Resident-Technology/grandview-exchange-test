@@ -1,17 +1,17 @@
 backend:
   name: github
-  repo: Grandview-Resident-Technology/grandview-exchange-test
+  repo: GadgetComa/your-repo-name   # Replace with your exact GitHub repository name
   branch: main
-  base_url: https://decap-oauth-worker.leon-e4e.workers.dev
+  base_url: https://decap-oauth-worker.your-subdomain.workers.dev
   auth_endpoint: auth
 
-media_folder: "assets/img"
+media_folder: "../assets/img"
 public_folder: "/assets/img"
 
 collections:
   - name: "pages"
     label: "Website Pages & Guides"
-    folder: "./"
+    folder: "../"
     create: false
     extension: "html"
     format: "raw"
@@ -19,7 +19,7 @@ collections:
       # --- Welcome Center (Home) ---
       - label: "Welcome Center (Home)"
         name: "home"
-        file: "index.html"
+        file: "../index.html"
         fields:
           - label: "Page Title"
             name: "title"
@@ -45,7 +45,7 @@ collections:
       # --- Grandview Clubs ---
       - label: "Grandview Clubs"
         name: "clubs"
-        file: "clubs.html"
+        file: "../clubs.html"
         fields:
           - label: "Page Title"
             name: "title"
@@ -65,7 +65,7 @@ collections:
       # --- Email Start Guide ---
       - label: "Email Start Guide"
         name: "email_guide"
-        file: "email-start-guide.html"
+        file: "../email-start-guide.html"
         fields:
           - label: "Page Title"
             name: "title"
@@ -84,7 +84,7 @@ collections:
       # --- App Start Guide ---
       - label: "App Start Guide"
         name: "app_guide"
-        file: "app-start-guide.html"
+        file: "../app-start-guide.html"
         fields:
           - { label: "Page Title", name: "title", widget: "string" }
           - { label: "Lead Text", name: "lead_text", widget: "markdown" }
@@ -98,7 +98,7 @@ collections:
       # --- Browser Start Guide ---
       - label: "Browser Start Guide"
         name: "browser_guide"
-        file: "browser-start-guide.html"
+        file: "../browser-start-guide.html"
         fields:
           - { label: "Page Title", name: "title", widget: "string" }
           - { label: "Lead Text", name: "lead_text", widget: "markdown" }
@@ -112,7 +112,7 @@ collections:
       # --- Club Leader Guide ---
       - label: "Club Leader Guide"
         name: "club_leader_guide"
-        file: "club-leader-guide.html"
+        file: "../club-leader-guide.html"
         fields:
           - { label: "Page Title", name: "title", widget: "string" }
           - { label: "Lead Text", name: "lead_text", widget: "markdown" }
@@ -126,7 +126,7 @@ collections:
       # --- Learn More Page ---
       - label: "Learn More Page"
         name: "learn_more"
-        file: "learn-more.html"
+        file: "../learn-more.html"
         fields:
           - { label: "Page Title", name: "title", widget: "string" }
           - { label: "Lead Text", name: "lead_text", widget: "markdown" }
@@ -140,7 +140,7 @@ collections:
       # --- Login Guide Page ---
       - label: "Login Guide Page"
         name: "login_guide"
-        file: "login-guide.html"
+        file: "../login-guide.html"
         fields:
           - { label: "Page Title", name: "title", widget: "string" }
           - { label: "Lead Text", name: "lead_text", widget: "markdown" }
@@ -154,7 +154,7 @@ collections:
       # --- Calendar Page ---
       - label: "Calendar Page"
         name: "calendar"
-        file: "calendar.html"
+        file: "../calendar.html"
         fields:
           - { label: "Page Title", name: "title", widget: "string" }
           - { label: "Lead Text", name: "lead_text", widget: "markdown" }
